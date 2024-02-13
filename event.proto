@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "./pb";
+
+package pb;
+
+message Event {
+    int64 id_dispositivo = 1;
+    int32 n_canal = 2;
+    string objeto_detectado = 3;
+    string cod_regra_burlada = 4;
+    string horario = 5;
+}
+
+service EventService {
+
+    rpc EmitEvent (Event) returns (google.protobuf.Empty);
+}
